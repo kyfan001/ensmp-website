@@ -1,351 +1,177 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090e18">
-<title>ENSMP | Minecraft Survival</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101713">
+<title>ENSMP Store</title>
 
 <style>
 :root {
-  --bg:#090e18;
-  --panel:#111a29;
-  --panel2:#172438;
-  --green:#53f59b;
-  --text:#f4f7ff;
-  --muted:#9caec5;
-  --border:#26354b;
+  --bg:#101713;
+  --card:#19241d;
+  --green:#69e58a;
+  --text:#f5fff6;
+  --muted:#a6b7aa;
+  --border:#304537;
 }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial,sans-serif;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
 }
-a { color:inherit; text-decoration:none; }
-button { font:inherit; cursor:pointer; }
-
-nav {
-  position:sticky;
-  top:0;
-  z-index:20;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  padding:16px 6%;
-  background:#090e18ed;
-  border-bottom:1px solid var(--border);
-  backdrop-filter:blur(12px);
+a{color:inherit;text-decoration:none}
+header{
+  position:sticky;top:0;z-index:10;
+  background:#101713f2;border-bottom:1px solid var(--border);
 }
-.logo {
-  font-size:25px;
-  font-weight:900;
-  letter-spacing:1px;
+nav{
+  max-width:1100px;margin:auto;padding:16px 20px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:20px;
 }
-.logo span,h1 span { color:var(--green); }
-.links {
-  display:flex;
-  flex-wrap:wrap;
-  gap:17px;
-  font-size:13px;
+.logo{font-size:23px;font-weight:900;color:var(--green)}
+.links{display:flex;gap:20px;font-size:14px;font-weight:bold}
+.links a:hover{color:var(--green)}
+.wrap{width:min(1050px,92%);margin:auto}
+.hero{
+  padding:75px 0 45px;
+  background:radial-gradient(ellipse at top,#24442e,transparent 70%);
 }
-.links a:hover { color:var(--green); }
-
-/* LATAR BELAKANG DIPERTAHANKAN */
-.hero {
-  padding:85px 6% 65px;
-  text-align:center;
-  background:
-    radial-gradient(ellipse at 50% 0%,#21483d,transparent 65%),
-    linear-gradient(145deg,#101c2b,#090e18 75%);
+.hero h1{font-size:clamp(38px,7vw,65px);margin:18px 0}
+.hero h1 span{color:var(--green)}
+.hero p{max-width:580px;color:var(--muted);line-height:1.8}
+.pill{
+  display:inline-block;padding:8px 13px;border-radius:30px;
+  background:#203b29;color:var(--green);font-size:12px;
+  font-weight:bold;letter-spacing:1px;
 }
-.pill,.tag {
-  display:inline-block;
-  border:1px solid #35684e;
-  background:#10271e;
-  color:var(--green);
-  padding:8px 12px;
-  border-radius:30px;
-  font-size:12px;
+.btn{
+  display:inline-block;border:0;border-radius:10px;padding:13px 18px;
+  background:var(--green);color:#102016;font-weight:bold;
+  cursor:pointer;text-align:center;
 }
-h1 {
-  font-size:clamp(42px,8vw,76px);
-  margin:23px 0 12px;
+.btn:hover{filter:brightness(1.1)}
+.btn.secondary{background:#24352a;color:white;border:1px solid var(--border)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+section{padding:38px 0}
+.heading{margin-bottom:23px}
+.heading small{color:var(--green);font-weight:bold;letter-spacing:2px}
+.heading h2{font-size:32px;margin:8px 0}
+.heading p{color:var(--muted);line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{
+  padding:23px;background:linear-gradient(145deg,#1d2b21,#151d17);
+  border:1px solid var(--border);border-radius:17px;
 }
-p { line-height:1.7; }
-.muted { color:var(--muted); }
-.hero p { max-width:610px; margin:0 auto 24px; }
-
-.actions {
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
+.icon{
+  width:60px;height:60px;border-radius:14px;background:#2b4933;
+  display:grid;place-items:center;font-size:29px;margin-bottom:18px;
 }
-.btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:13px 19px;
-  border-radius:9px;
-  border:1px solid var(--green);
-  background:var(--green);
-  color:#08150e;
-  font-weight:bold;
+.card h3{margin:0 0 10px;font-size:21px}
+.card p{color:var(--muted);font-size:14px;line-height:1.7}
+.price{font-size:25px;font-weight:900;margin:18px 0}
+.coming{
+  display:inline-block;padding:8px 12px;background:#42371e;
+  color:#ffda7b;border-radius:8px;font-size:12px;font-weight:900;
 }
-.btn.outline {
-  background:transparent;
-  color:var(--green);
+.box{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:17px;padding:24px;
 }
-.btn:hover { opacity:.88; }
-
-.stats {
-  max-width:900px;
-  margin:38px auto 0;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
+.money-layout{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+label{display:block;margin:17px 0 8px;color:var(--muted);font-size:14px}
+input,select{
+  display:block;width:100%;padding:14px;border-radius:10px;
+  border:1px solid var(--border);background:#101713;color:white;
+  font-size:16px;
 }
-.stat,.card,.server-box,.formbox {
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:14px;
+.presets{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.presets button{
+  background:#263a2b;border:1px solid var(--border);color:white;
+  padding:9px 12px;border-radius:8px;cursor:pointer;
 }
-.stat { padding:17px 8px; }
-.stat strong {
-  display:block;
-  color:var(--green);
-  font-size:20px;
+.total{
+  margin:20px 0;padding:18px;background:#1b3523;
+  border:1px solid #376d45;border-radius:12px;
 }
-.stat small {
-  display:block;
-  color:var(--muted);
-  margin-top:7px;
+.total small{color:var(--muted)}
+.total h3{font-size:30px;color:var(--green);margin:8px 0}
+.info{color:var(--muted);font-size:13px;line-height:1.7}
+.list{padding:0;list-style:none}
+.list li{
+  padding:14px 0;border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;gap:12px;
 }
-
-section {
-  padding:55px 6%;
-  scroll-margin-top:75px;
+.list span{color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+footer{
+  margin-top:35px;padding:28px 0;border-top:1px solid var(--border);
+  color:var(--muted);font-size:13px;
 }
-.heading {
-  text-align:center;
-  margin-bottom:30px;
-}
-.heading h2 {
-  font-size:30px;
-  margin:0 0 10px;
-}
-.heading p { color:var(--muted); margin:0; }
-
-.grid {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:17px;
-  max-width:1100px;
-  margin:auto;
-}
-.card { padding:23px; min-width:0; }
-.card h3 { margin:12px 0; }
-.card p { font-size:14px; color:var(--muted); }
-.emoji { font-size:28px; }
-.card .btn { width:100%; margin-top:10px; }
-
-.price {
-  font-size:27px;
-  font-weight:bold;
-  color:var(--green);
-  margin:12px 0;
-  overflow-wrap:anywhere;
-}
-.coming {
-  display:block;
-  text-align:center;
-  padding:11px;
-  border-radius:8px;
-  border:1px solid #79652f;
-  color:#ffda79;
-  background:#302719;
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:1px;
-}
-
-.server-box,.formbox {
-  max-width:650px;
-  margin:auto;
-  padding:25px;
-}
-.server-ip {
-  font-size:22px;
-  color:var(--green);
-  font-weight:bold;
-  overflow-wrap:anywhere;
-}
-label {
-  display:block;
-  margin:16px 0 7px;
-  color:var(--muted);
-  font-size:14px;
-}
-input {
-  width:100%;
-  padding:13px;
-  border-radius:8px;
-  border:1px solid var(--border);
-  background:#090f19;
-  color:white;
-  font-size:15px;
-}
-.formbox .btn { width:100%; margin-top:18px; }
-.note {
-  background:#10251d;
-  border-left:3px solid var(--green);
-  padding:13px;
-  margin-top:18px;
-  color:var(--muted);
-  font-size:13px;
-}
-.step {
-  padding:13px 0;
-  border-bottom:1px solid var(--border);
-  color:var(--muted);
-  font-size:14px;
-}
-footer {
-  padding:30px 6%;
-  text-align:center;
-  border-top:1px solid var(--border);
-  color:var(--muted);
-  font-size:13px;
-}
-footer strong { color:var(--green); }
-
-@media(max-width:760px) {
-  nav {
-    align-items:flex-start;
-    flex-direction:column;
-    padding:15px 5%;
-  }
-  .links { gap:12px; }
-  .grid { grid-template-columns:1fr; }
-  .stats { grid-template-columns:repeat(2,1fr); }
-  section { padding:43px 5%; }
-  .hero { padding:60px 5% 45px; }
+@media(max-width:700px){
+  nav{align-items:flex-start;flex-direction:column}
+  .links{gap:14px;flex-wrap:wrap}
+  .grid,.money-layout,.steps{grid-template-columns:1fr}
+  .hero{padding-top:50px}
+  .heading h2{font-size:27px}
 }
 </style>
 </head>
 
 <body>
-
+<header>
 <nav>
-  <a class="logo" href="#home">EN<span>SMP</span></a>
+  <a class="logo" href="#home">⛏ ENSMP STORE</a>
   <div class="links">
-    <a href="#home">Home</a>
-    <a href="#join">Join Server</a>
-    <a href="#features">Features</a>
-    <a href="#shop">Store</a>
-    <a href="#money">Money</a>
-    <a href="#rank">Rank</a>
+    <a href="#home">Beranda</a>
+    <a href="#rank">Rank Shop</a>
+    <a href="#money">Money Shop</a>
+    <a href="#cara">Cara Order</a>
   </div>
 </nav>
-
-<header class="hero" id="home">
-  <span class="pill">MINECRAFT SURVIVAL ECONOMY</span>
-  <h1>WELCOME TO <span>ENSMP</span></h1>
-  <p class="muted">
-    Mulai petualanganmu, kumpulkan kekayaan, bangun base,
-    dan jadilah pemain paling berpengaruh di dunia ENSMP.
-  </p>
-
-  <div class="actions">
-    <a href="#join" class="btn">⚔️ Main Sekarang</a>
-    <a href="#shop" class="btn outline">🛒 Buka Store</a>
-  </div>
-
-  <div class="stats">
-    <div class="stat"><strong>ENSMP</strong><small>Server Name</small></div>
-    <div class="stat"><strong>Bedrock</strong><small>Platform</small></div>
-    <div class="stat"><strong>Economy</strong><small>Gameplay</small></div>
-    <div class="stat"><strong>Community</strong><small>Join Us</small></div>
-  </div>
 </header>
 
-<section id="join">
-  <div class="heading">
-    <h2>🌐 Join ENSMP</h2>
-    <p>Masuk ke server dan mulai perjalanan survival-mu.</p>
-  </div>
-
-  <div class="server-box" style="text-align:center">
-    <span class="tag">BEDROCK EDITION</span>
-    <p class="muted">Server Address</p>
-    <div class="server-ip" id="serverIP">GANTI_IP_SERVER</div>
-    <p class="muted">Port: <strong id="serverPort">19132</strong></p>
-    <button class="btn" type="button" onclick="copyServer()">📋 Salin IP Server</button>
-    <p id="copyStatus" class="muted"></p>
-
-    <div style="text-align:left;margin-top:20px">
-      <div class="step">1. Buka Minecraft Bedrock.</div>
-      <div class="step">2. Pilih Play lalu tab Servers.</div>
-      <div class="step">3. Tekan Add Server.</div>
-      <div class="step">4. Masukkan IP dan port ENSMP.</div>
-    </div>
+<main class="wrap">
+<section class="hero" id="home">
+  <span class="pill">MINECRAFT BEDROCK SERVER</span>
+  <h1>WELCOME TO<br><span>ENSMP STORE</span></h1>
+  <p>
+    Selamat datang di toko resmi ENSMP.
+    Dapatkan Money untuk petualanganmu dan nantikan
+    berbagai rank eksklusif yang segera hadir!
+  </p>
+  <div class="actions">
+    <a class="btn" href="#money">Beli Money ↗</a>
+    <a class="btn secondary" href="#rank">Lihat Rank</a>
   </div>
 </section>
 
-<section id="features">
+<section id="rank">
   <div class="heading">
-    <h2>✨ Server Features</h2>
-    <p>Bangun progres dan nikmati pengalaman survival.</p>
+    <small>ENSMP EXCLUSIVE</small>
+    <h2>Rank Shop</h2>
+    <p>Rank eksklusif ENSMP sedang dipersiapkan.</p>
   </div>
-
   <div class="grid">
     <article class="card">
-      <div class="emoji">⛏️</div>
-      <h3>Survival</h3>
-      <p>Jelajahi dunia, kumpulkan resource, dan bangun base impianmu.</p>
-    </article>
-    <article class="card">
-      <div class="emoji">💰</div>
-      <h3>Economy</h3>
-      <p>Kembangkan kekayaan dengan sistem Money ENSMP.</p>
-    </article>
-    <article class="card">
-      <div class="emoji">👑</div>
-      <h3>Rank System</h3>
-      <p>Informasi rank premium sedang dipersiapkan.</p>
-    </article>
-  </div>
-</section>
-
-<section id="shop">
-  <div class="heading">
-    <h2>🛒 Official Store</h2>
-    <p>Pilih toko ENSMP yang ingin kamu kunjungi.</p>
-  </div>
-
-  <div class="grid">
-    <article class="card">
-      <div class="emoji">💵</div>
-      <h3>Money Shop</h3>
-      <p>Pilih jumlah Money. Harga dihitung otomatis berdasarkan kurs resmi.</p>
-      <a href="#money" class="btn">Top Up Money</a>
-    </article>
-
-    <article class="card">
-      <div class="emoji">👑</div>
-      <h3>Rank Premium</h3>
-      <p>Informasi rank premium akan diumumkan nanti.</p>
+      <div class="icon">⚔️</div>
+      <h3>ENSMP Rank</h3>
+      <p>Rank spesial untuk para petualang ENSMP.</p>
       <span class="coming">COMING SOON</span>
     </article>
-
     <article class="card">
-      <div class="emoji">⚡</div>
-      <h3>Fitur Lainnya</h3>
-      <p>Informasi fitur toko tambahan akan diumumkan admin.</p>
+      <div class="icon">💎</div>
+      <h3>Premium Rank</h3>
+      <p>Informasi rank dan benefit akan diumumkan nanti.</p>
+      <span class="coming">COMING SOON</span>
+    </article>
+    <article class="card">
+      <div class="icon">👑</div>
+      <h3>Exclusive Rank</h3>
+      <p>Tunggu pembaruan berikutnya dari ENSMP.</p>
       <span class="coming">COMING SOON</span>
     </article>
   </div>
@@ -353,83 +179,187 @@ footer strong { color:var(--green); }
 
 <section id="money">
   <div class="heading">
-    <h2>💰 Money Shop</h2>
-    <p>Jumlah Money bebas dipilih, harga mengikuti kurs tetap.</p>
+    <small>TOP UP YOUR BALANCE</small>
+    <h2>Money Shop</h2>
+    <p>Pilih jumlah Money. Harga dihitung otomatis berdasarkan tarif tetap.</p>
   </div>
 
-  <div class="formbox">
-    <span class="tag">OFFICIAL MONEY STORE</span>
-    <h3>Pesan Money ENSMP</h3>
-    <p class="muted">Kurs resmi: Rp1 = 10 Money</p>
+  <div class="money-layout">
+    <div class="box">
+      <h3>🪙 Top Up Money</h3>
 
-    <form id="moneyForm">
-      <label for="player">Nama pemain Minecraft</label>
-      <input
-        id="player"
-        type="text"
-        maxlength="32"
-        required
-        autocomplete="off"
-        placeholder="Masukkan nama in-game"
-      >
+      <label for="amount">Jumlah Money</label>
+      <input id="amount" type="number" min="10"
+             max="100000000" step="10" value="1000">
 
-      <label for="amount">Jumlah Money yang diinginkan</label>
-      <input
-        id="amount"
-        type="number"
-        min="1"
-        step="1"
-        required
-        placeholder="Contoh: 12345"
-      >
+      <div class="presets">
+        <button type="button" data-amount="1000">1.000</button>
+        <button type="button" data-amount="5000">5.000</button>
+        <button type="button" data-amount="10000">10.000</button>
+        <button type="button" data-amount="50000">50.000</button>
+      </div>
 
-      <label>Total harga otomatis</label>
-      <div class="price" id="totalPrice">Masukkan jumlah Money</div>
-      <p class="muted">Harga = jumlah Money ÷ 10</p>
+      <label for="player">Nama player Minecraft</label>
+      <input id="player" type="text" maxlength="32"
+             placeholder="Masukkan gamertag">
 
-      <button class="btn" type="submit">
-        Pesan melalui WhatsApp →
+      <label for="payment">Metode pembayaran</label>
+      <select id="payment">
+        <option>Konfirmasi dengan admin</option>
+        <option>QRIS (konfirmasi admin)</option>
+        <option>Transfer bank (konfirmasi admin)</option>
+        <option>E-wallet (konfirmasi admin)</option>
+      </select>
+
+      <div class="total">
+        <small>Total pembayaran</small>
+        <h3 id="price">Rp100</h3>
+        <small id="conversion">1.000 Money • Rp1 = 10 Money</small>
+      </div>
+
+      <button class="btn" id="order" style="width:100%">
+        Pesan via WhatsApp ↗
       </button>
-    </form>
+      <p class="info">
+        Pembayaran dan pengiriman Money harus dikonfirmasi admin.
+      </p>
+    </div>
 
-    <div class="note">
-      Harga ditentukan otomatis berdasarkan kurs Rp1 = 10 Money.
-      Jumlah Money boleh berapa pun, termasuk angka yang bukan
-      kelipatan 10. Pesanan dikonfirmasi admin sebelum pembayaran
-      dan pengiriman Money.
+    <div class="box">
+      <h3>Ringkasan Pesanan</h3>
+      <ul class="list">
+        <li><span>Produk</span><b>ENSMP Money</b></li>
+        <li><span>Jumlah</span><b id="sumAmount">1.000 Money</b></li>
+        <li><span>Tarif</span><b>Rp1 = 10 Money</b></li>
+        <li><span>Harga</span><b id="sumPrice">Rp100</b></li>
+        <li><span>Player</span><b id="sumPlayer">Belum diisi</b></li>
+      </ul>
+      <p class="info">
+        Rumus: harga Rupiah = jumlah Money ÷ 10.<br>
+        Contoh: 10.000 Money = Rp1.000.
+      </p>
     </div>
   </div>
 </section>
 
-<section id="rank">
+<section id="cara">
   <div class="heading">
-    <h2>👑 Rank Shop</h2>
-    <p>Rank premium ENSMP akan segera hadir.</p>
+    <small>HOW TO ORDER</small>
+    <h2>Cara Order</h2>
   </div>
-
-  <div class="grid">
+  <div class="steps">
     <article class="card">
-      <div class="emoji">🥉</div>
-      <h3>VIP</h3>
-      <p>Benefit dan harga belum diumumkan.</p>
-      <span class="coming">COMING SOON</span>
+      <h3>01. Pilih produk</h3>
+      <p>Pilih jumlah Money yang ingin kamu beli.</p>
     </article>
-
     <article class="card">
-      <div class="emoji">🥈</div>
-      <h3>MVP</h3>
-      <p>Benefit dan harga belum diumumkan.</p>
-      <span class="coming">COMING SOON</span>
+      <h3>02. Kirim pesanan</h3>
+      <p>Tekan tombol WhatsApp untuk mengirim detail pesanan.</p>
     </article>
-
     <article class="card">
-      <div class="emoji">🥇</div>
-      <h3>LEGEND</h3>
-      <p>Benefit dan harga belum diumumkan.</p>
-      <span class="coming">COMING SOON</span>
+      <h3>03. Konfirmasi</h3>
+      <p>Ikuti instruksi admin untuk pembayaran dan pengiriman.</p>
     </article>
   </div>
 </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong style="color:white">ENSMP STORE</strong>
+    <p>Website toko ENSMP Minecraft Bedrock.</p>
+    <p>© <span id="year"></span> ENSMP. Minecraft adalah merek dagang Mojang.</p>
+  </div>
+</footer>
+
+<script>
+// GANTI nomor berikut jika nomor WhatsApp admin berubah.
+const ADMIN_WA = "6282131362119";
+
+// Tarif tetap: Rp1 = 10 Money.
+const MONEY_PER_RUPIAH = 10;
+
+const amountInput = document.getElementById("amount");
+const playerInput = document.getElementById("player");
+
+function formatNumber(n) {
+  return new Intl.NumberFormat("id-ID").format(n);
+}
+
+function rupiah(n) {
+  return "Rp" + formatNumber(n);
+}
+
+function getAmount() {
+  let n = Number(amountInput.value);
+  if (!Number.isFinite(n)) n = 10;
+  n = Math.floor(n / 10) * 10;
+  return Math.max(10, Math.min(100000000, n));
+}
+
+function updatePrice() {
+  const amount = getAmount();
+  const price = amount / MONEY_PER_RUPIAH;
+
+  document.getElementById("price").textContent = rupiah(price);
+  document.getElementById("conversion").textContent =
+    formatNumber(amount) + " Money • Rp1 = 10 Money";
+  document.getElementById("sumAmount").textContent =
+    formatNumber(amount) + " Money";
+  document.getElementById("sumPrice").textContent = rupiah(price);
+  document.getElementById("sumPlayer").textContent =
+    playerInput.value.trim() || "Belum diisi";
+}
+
+amountInput.addEventListener("input", updatePrice);
+amountInput.addEventListener("change", () => {
+  amountInput.value = getAmount();
+  updatePrice();
+});
+playerInput.addEventListener("input", updatePrice);
+
+document.querySelectorAll("[data-amount]").forEach(button => {
+  button.addEventListener("click", () => {
+    amountInput.value = button.dataset.amount;
+    updatePrice();
+  });
+});
+
+document.getElementById("order").addEventListener("click", () => {
+  const amount = getAmount();
+  const player = playerInput.value.trim();
+
+  if (!player) {
+    alert("Masukkan nama player Minecraft terlebih dahulu.");
+    playerInput.focus();
+    return;
+  }
+
+  const price = amount / MONEY_PER_RUPIAH;
+  const payment = document.getElementById("payment").value;
+
+  const message =
+    "Halo Admin ENSMP, saya ingin memesan Money.%0A%0A" +
+    "Produk: ENSMP Money%0A" +
+    "Nama player: " + encodeURIComponent(player) + "%0A" +
+    "Jumlah: " + formatNumber(amount) + " Money%0A" +
+    "Tarif: Rp1 = 10 Money%0A" +
+    "Total: " + rupiah(price) + "%0A" +
+    "Pembayaran: " + encodeURIComponent(payment) + "%0A%0A" +
+    "Mohon konfirmasi pesanan saya.";
+
+  window.open(
+    "https://wa.me/" + ADMIN_WA + "?text=" + message,
+    "_blank"
+  );
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+updatePrice();
+</script>
+</body>
+</html>
+tion>
 
 <footer>
   <strong>ENSMP NETWORK</strong>
@@ -518,7 +448,7 @@ async function copyServer() {
     await navigator.clipboard.writeText(SERVER_IP);
     status.textContent = "IP berhasil disalin!";
   } catch (error) {
-    status.textContent = "Salin IP ini: " + SERVER_IP;
+    status.textContent = "Salin IP ini: " + ensmp.mcsh.gg;
   }
 }
 
