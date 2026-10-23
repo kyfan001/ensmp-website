@@ -500,7 +500,7 @@ document.getElementById("moneyForm").addEventListener("submit", function(event) 
     "Mohon konfirmasi pesanan saya. Terima kasih."
   ].join("\n");
 
-  const url = "https://wa.me/6282131262119" + ADMIN_WHATSAPP +
+  const url =ADMIN_WHATSAPP +
     "?text=" + encodeURIComponent(message);
 
   window.open(url, "_blank");
