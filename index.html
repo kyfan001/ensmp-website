@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10131d">
+  <title>ENSMP | Minecraft Survival</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: #0b0e16;
+    }
+    header {
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #121725;
+      border-bottom: 1px solid #30384d;
+    }
+    .logo { font-size: 27px; font-weight: 900; color: #65f0a2; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
+    .hero {
+      text-align: center;
+      padding: 90px 20px 75px;
+      background: radial-gradient(ellipse at top, #174b46, #111727 65%);
+    }
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid #65f0a2;
+      border-radius: 30px;
+      color: #65f0a2;
+    }
+    h1 { font-size: clamp(42px, 9vw, 76px); margin: 24px 0 12px; }
+    h1 span { color: #65f0a2; }
+    .hero p { color: #c3cada; line-height: 1.8; }
+    .btn {
+      display: inline-block;
+      margin: 12px 5px;
+      padding: 14px 22px;
+      background: #65f0a2;
+      color: #09120e;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .secondary { background: #242d40; color: white; }
+    section { padding: 45px 7%; }
+    h2 { text-align: center; font-size: 30px; }
+    .muted { color: #aeb8ca; text-align: center; line-height: 1.8; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .card {
+      background: #151b2a;
+      border: 1px solid #30394d;
+      padding: 23px;
+      border-radius: 15px;
+    }
+    .card h3 { color: #65f0a2; }
+    .server {
+      text-align: center;
+      background: #151b2a;
+      border: 1px solid #30394d;
+      border-radius: 15px;
+      padding: 25px;
+      max-width: 600px;
+      margin: 25px auto 0;
+      overflow-wrap: anywhere;
+    }
+    .address { font-size: 19px; font-weight: bold; color: #65f0a2; }
+    footer {
+      padding: 25px;
+      text-align: center;
+      color: #9da8bb;
+      border-top: 1px solid #30384d;
+    }
+    @media(max-width: 520px) {
+      header { padding: 16px; }
+      nav a { margin-left: 9px; font-size: 12px; }
+      .logo { font-size: 22px; }
+      .hero { padding-top: 65px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">ENSMP</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#fitur">Fitur</a>
+      <a href="#server">Server</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero" id="home">
+      <span class="tag">MINECRAFT BEDROCK EDITION</span>
+      <h1>WELCOME TO<br><span>ENSMP</span></h1>
+      <p>Bangun kerajaanmu, kumpulkan kekayaan,<br>
+      dan jadilah legenda di dunia survival!</p>
+      <a class="btn" href="#server">Gabung Server</a>
+      <a class="btn secondary" href="#fitur">Jelajahi Fitur</a>
+    </div>
+
+    <section id="fitur">
+      <h2>Fitur ENSMP</h2>
+      <p class="muted">Petualangan survival dengan ekonomi dan persaingan seru.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>💰 Economy</h3>
+          <p>Kumpulkan uang, berdagang, dan bangun kekayaanmu.</p>
+        </div>
+        <div class="card">
+          <h3>⚔️ Survival</h3>
+          <p>Jelajahi dunia, bertarung, dan bertahan hidup.</p>
+        </div>
+        <div class="card">
+          <h3>🏆 Rank & Leaderboard</h3>
+          <p>Buktikan kemampuanmu dan jadilah pemain terbaik.</p>
+        </div>
+        <div class="card">
+          <h3>🌍 Komunitas</h3>
+          <p>Bermain bersama teman dan bangun cerita sendiri.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="server">
+      <h2>Bergabung dengan ENSMP</h2>
+      <p class="muted">Informasi server akan ditambahkan setelah server siap.</p>
+      <div class="server">
+        <p>Status server</p>
+        <h3>🟡 Informasi segera hadir</h3>
+        <p>IP dan port server akan diumumkan di sini.</p>
+        <a class="btn" href="#home">Kembali ke Atas</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 ENSMP Minecraft · Dibuat untuk komunitas ENSMP
+  </footer>
+</body>
+  </html>
+        
